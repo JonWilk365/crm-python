@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>CRM - Cadastro de Clientes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Cadastrar Cliente</h2>
+        <form method="POST">
+            <input type="text" name="nome" placeholder="Nome" required>
+            <input type="text" name="telefone" placeholder="Telefone" required>
+            <input type="email" name="email" placeholder="E-mail" required>
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+</body>
+</html>
