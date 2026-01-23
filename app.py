@@ -18,9 +18,19 @@ SCOPES = [
     "https://www.googleapis.com/auth/drive"
 ]
 
-creds = Credentials.from_service_account_file("credentials.json", scopes=SCOPES)
+import os
+
+creds_json = os.environ.get("GOOGLE_CREDENTIALS")
+
+if not creds_json:
+    raise Exception("GOOGLE_CREDENTIALS não configurado no Railway")
+
+creds_dict = json.loads(creds_json)
+
+creds = Credentials.from_service_account_info(creds_dict, scopes=SCOPES)
 client = gspread.authorize(creds)
-sheet = client.open("CRM").sheet1
+sheet = client.open("CRM Clientes").sheet1
+
 
 # ---------------- ROTAS ----------------
 @app.route("/login", methods=["GET", "POST"])
