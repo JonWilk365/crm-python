@@ -8,9 +8,14 @@ app = Flask(__name__)
 app.secret_key = "segredo_super_secreto"
 
 # ---------------- AUTH ----------------
+import os
+
 def carregar_usuarios():
-    with open("users.json") as f:
-        return json.load(f)
+    users_json = os.environ.get("USERS_JSON")
+    if not users_json:
+        raise Exception("USERS_JSON não configurado no Railway")
+    return json.loads(users_json)
+
 
 # ---------------- GOOGLE SHEETS ----------------
 SCOPES = [
