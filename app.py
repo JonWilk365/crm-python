@@ -65,7 +65,17 @@ def index():
         email = request.form["email"]
 
         now = datetime.now().strftime("%d/%m/%Y %H:%M")
-        sheet.append_row(["", nome, telefone, email, "Novo", session["user"], "", now, "", ""])
+        sheet.append_row([
+    "",                 # A - ID
+    nome,              # B - Nome
+    telefone,         # C - Telefone
+    email,            # D - Email
+    "Novo",           # E - Status
+    session["user"], # F - Usuário
+    "",               # G - Observação
+    now               # H - Data
+])
+
 
         return redirect("/")
 
